@@ -29,70 +29,79 @@ Utiliser la commande `apt-cache showpkg | grep -A1 Versions` pour connaître ce 
 
 Par exemple: `glpi-0.84.8`
 
+### Récupération de la mise à jour
+Voir le site de [GLPI](http://glpi-project.org/) et télécharger le fichier `tar.gz` correspondant à la mise à jour.
+
+#### Quelques opérations courantes
+Lister le contenu du tar :
+
+`tar tvf glpi-9.1.tar.gz | less`
+
+Lister les versions installées sur le système :
+
+`ls -ld /usr/share/glpi*`
+
+#### Installation de la mise à jour
+
+Suivre les instructions de la page sur la [Mise à jour de GLPI](http://glpi-project.org/spip.php?article171) ainsi que les instructions suivantes.
+
+Extraire le tar :
+
+```bash
+sudo tar xvzf glpi-9.1.tar.gz -C /usr/share
+```
+
+Renommage:
+
+```bash
+mv /usr/share/glpi /usr/share/glpi-9.1
+
+## Création du lien symbolique
+
+```bash
+cd /usr/share
+ln -s glpi-9.1 glpi
+```
+
+Ensuite se connecter avec le navigateur sur la page de votre serveur `glpi.serveur.domaine.com`
+ou `<adresse_ip>/glpi`
 
 
-## Lister le contenu du tar
+## Si des erreurs apparaissent
 
-### tar tvf glpi-9.1.tar.gz | less
+### Problème de droit
 
-## Extraire le tar
+```bash
+sudo chown -R www-data:www-data /usr/share/glpi-9.1/
+```
 
-### sudo tar xvzf glpi-9.1.tar.gz -C /usr/share
+### Correction des avertissements
 
-## Lister
+Vérifier que les paquets correspondants aux avertissement sont installés:
 
-### ls -ld /usr/share/glpi*
+```bash
+sudo apt-cache search php |grep curl
+sudo apt-get install php5-curl
+```
 
-## On va déplacer le fichier
+### Installation de gd
 
-### glpi-9.1
+```bash
+sudo apt-get install php5-gd
+```
 
-## On va créer un lien symbolique
+## Redémarrer php5
 
-### ln -s glpi-9.1 glpi
+### Sous Debian Jessie
 
-## Faire la mise à jour
+```bash
+sudo systemctl restart apache2.service
+```
 
-### Des erreurs apparaissent
+## Configuration du serveur MySQL/MariaDB
 
-#### Problème de droit
+Entrer les paramètres suivants:
 
-#### sudo chown -R www-data:www-data glpi-9.1/
-
-## Correction des avertissements
-
-### sudo apt-cache search php |grep curl sudo apt-get install php5-curl
-
-### COmment faire pour gd ?
-
-#### sudo apt-get install php5-gd
-
-### Redémarrer php5
-
-#### Comment faire avec Jessie ?
-
-##### sudo systemctl restart apache2.service
-
-## Serveur MySQL/MariaDB
-
-### config
-
-#### localhost
-
-#### glpi
-
-#### gmsi15
-
-### Bdd à mettre à jour:
-
-#### glpi
-
-## Modifier la langue de l'administrateur glpi
-
-# Sécurisation des comptes
-
-## Menu Administration > Utilisateurs
-
-### Pour chaque utilisateur, changer le mot de passe
-
-#### Dans le cas présent: le nom de la promo
+Host: `localhost`
+User: `glpi`
+Password: `MOT DE PASSE DE LA BDD GLPI que vous avez entré précédemment`
