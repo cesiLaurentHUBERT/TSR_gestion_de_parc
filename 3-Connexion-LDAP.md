@@ -47,7 +47,7 @@ Filtre de connexion: ce champ permet de définir une condition de recherche, af
 
 BaseDN : ce champ permet de définir le point de départ des recherches dans l’arborescence de l’annuaire LDAP. DN du compte (pour les connexions non anonymes) : ce champ contient le nom du compte à utiliser par GLPI pour récupérer les données lorsque les connexions anonymes ne sont pas autorisées sur le serveur.
 
- - ici: `cn=admin,dc=masocietedemo,dc=com`
+ - ici: `dc=masocietedemo,dc=com`
 
 
 Mot de passe du compte (pour les connexions non anonymes) : ce champ contient le mot de passe associé au compte ci­dessus pour les connexions non anonymes.
