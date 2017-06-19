@@ -28,6 +28,8 @@ Ne pas oublier de **noter vos mots de passe en lieu sûr**.
 
 La base de données se situe [ici](data/glpi-9.1.3-init-demo.sql.gz).
 
+
+#### Importation par l'interface graphique
 Importez cette base de données dans GLPI.
 
 Pour cela:
@@ -35,6 +37,18 @@ Pour cela:
 1. placez ce fichier dans le répertoire `glpi/files/_dumps`
 2. allez dans le menu GLPI `Administration > maintenance`
 3. cliquez sur le bouton `Restaurer` placé en face du fichier correspondant
+
+#### Importation par la ligne de commande
+
+En cas de problème (blocage de GLPI), il est possible d'importer depuis la ligne de commande.
+
+Pour cela:
+
+1. Se placer dans son répertoire HOME
+2. Récupérer le fichier (par exemple glpi-9.1.3-init-demo.sql.gz)
+3. Le dézipper si nécessaire: `gunzip glpi-9.1.3-init-demo.sql.gz` (on obtient un fichier nommé `glpi-9.1.3-init-demo.sql`
+4. Tapez la commande suivante: `mysql -u root -p glpi < glpi-9.1.3-init-demo.sql.gz`
+
 
 ### Menus
 
