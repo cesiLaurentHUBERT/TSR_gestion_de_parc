@@ -45,9 +45,40 @@ En cas de problème (blocage de GLPI), il est possible d'importer depuis la lign
 Pour cela:
 
 1. Se placer dans son répertoire HOME
-2. Récupérer le fichier (par exemple glpi-9.1.3-init-demo.sql.gz)
-3. Le dézipper si nécessaire: `gunzip glpi-9.1.3-init-demo.sql.gz` (on obtient un fichier nommé `glpi-9.1.3-init-demo.sql`
+2. Récupérer le fichier (par exemple `glpi-9.1.3-init-demo.sql.gz`)
+  - **ATTENTION**: sous `github`, le fichier à récupérer est un fichier raw (et pas l'adresse donnée par `github`)
+  - Il faut cliquer sur le lien `view raw` de la page où se situe le fichier
+  - La commande pour récupérer ce fichier est donc:
+    - `wget -O glpi-9.1.3-init-demo.sql.gz https://github.com/cesiLaurentHUBERT/TSR_gestion_de_parc/blob/master/data/glpi-9.1.3-init-demo.sql.gz?raw=true`
+
+3. Le dézipper si nécessaire: `gunzip glpi-9.1.3-init-demo.sql.gz` (on obtient un fichier nommé `glpi-9.1.3-init-demo.sql`)
+  - si la commande échoue, il est possible que cela vienne du nom du fichier. Renommer le fichier une fois téléchargé pour qu'il ait le suffixe `.gz` permet de résoudre cela.
 4. Tapez la commande suivante: `mysql -u root -p glpi < glpi-9.1.3-init-demo.sql.gz`
+
+### Création d'une sauvegarde de la BDD
+
+Une fois la configuration générale effectuée, on va réaliser une sauvegarde
+
+#### En mode graphique
+
+C'est la section `Administration > Maintenance` qui permet de réaliser une sauvegarde, mais aussi de la restaurer.
+
+#### En ligne de commande
+
+
+La ligne de commande Linux permet également de faire des sauvegardes
+
+##### Création
+```bash
+mysqldump -u root -p glpi > backup-$(date +%Y%m%d%H%M%S).sql
+```
+
+
+##### Restauration
+```bash
+mysql -u root -p glpi < nomfichier.sql
+```
+
 
 
 ### Menus
@@ -218,31 +249,10 @@ Connectez-vous avec `post-only` pour essayer
 
 Créez un utilisateur avec le profil `Hotliner` et vérifiez à quels menus il a accès.
 
-## Exploration des profils par défaut
+### Exploration des profils par défaut
 
 Explorer la section `Administration > Profils` permet de visualiser les affectations faites à chaque profil. Attention: gardez en mémoire que supprimer des droits au profil Super-Admin peut bloquer l'utilisation de GLPI.
 
+## Exercice
 
-## Création d'une sauvegarde de la BDD
-
-Une fois la configuration générale effectuée, on va réaliser une sauvegarde
-
-### En mode graphique
-
-C'est la section `Administration > Maintenance` qui permet de réaliser une sauvegarde, mais aussi de la restaurer.
-
-### En mode serveur
-
-
-La ligne de commande Linux permet également de faire des sauvegardes
-
-#### Création
-```bash
-mysqldump -u root -p glpi > backup-$(date +%Y%m%d%H%M%S).sql
-```
-
-
-#### Restauration
-````bash
-mysql -u root -p glpi < nomfichier.sql
-```
+Prenez le document [Exercice-FicheIntervention](Exercice-FicheIntervention.md) et effectuez les tâches demandées.
