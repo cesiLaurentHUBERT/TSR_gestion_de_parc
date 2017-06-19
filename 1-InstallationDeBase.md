@@ -90,9 +90,17 @@ sudo apt-get install php5-curl
 sudo apt-get install php5-gd
 ```
 
-## Redémarrer php5
+### Installation du module IMAP
 
-### Sous Debian Jessie
+```bash
+sudo apt-get install php5-imap
+```
+
+
+
+### Redémarrer php5
+
+#### Sous Debian Jessie
 
 ```bash
 sudo systemctl restart apache2.service
