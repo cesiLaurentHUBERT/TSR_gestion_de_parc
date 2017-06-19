@@ -28,7 +28,13 @@ Ne pas oublier de **noter vos mots de passe en lieu sûr**.
 
 La base de données se situe [ici](data/glpi-0.85.2-init-demo.sql).
 
-Importez cette base de données dans GLPI
+Importez cette base de données dans GLPI.
+
+Pour cela:
+
+1. placez ce fichier dans le répertoire `glpi/files/_dumps`
+2. allez dans le menu GLPI `Administration > maintenance`
+3. cliquez sur le bouton `Restaurer` placé en face du fichier correspondant
 
 ### Menus
 
