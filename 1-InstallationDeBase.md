@@ -55,6 +55,7 @@ Renommage:
 
 ```bash
 mv /usr/share/glpi /usr/share/glpi-9.1
+```
 
 ## Création du lien symbolique
 
@@ -113,3 +114,29 @@ Entrer les paramètres suivants:
 Host: `localhost`
 User: `glpi`
 Password: `MOT DE PASSE DE LA BDD GLPI que vous avez entré précédemment`
+
+
+## Gestion du nom de domaine
+
+### Configuration Apache2
+
+Dans le fichier /etc/apache2/conf-available/glpi.conf (faites une sauvegarde de l'original) vous devez avoir le contenu suivant:
+
+```conf
+<VirtualHost *:80>
+  DocumentRoot /usr/share/glpi
+  ServerName glpi.exemple.cesi
+</VirtualHost>
+```
+
+Activez cette configuration (si ce n'est déjà fait) avec la commande:
+
+```bash
+sudo a2enconf glpi.conf
+```
+
+Puis redémarrez votre serveur Apache:
+
+```bash
+sudo systemctl restart apache2
+```
