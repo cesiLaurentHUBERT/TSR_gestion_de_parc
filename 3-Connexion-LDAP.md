@@ -13,19 +13,22 @@ La [VM fournie par turnkeylinux.org](https://www.turnkeylinux.org/openldap) perm
 
 ### Outils LDAP
 
+
+#### phpLDAPadmin
+
 Connectez-vous à phpLdapAdmin en utilisant un navigateur et l'IP (ou le nom réseau) de la machine
 
 #### Navigateur LDAP
 
-Vous pouvez utiliser l'outil http://www.jxplorer.org/ pour modifier
+Vous pouvez utiliser l'outil http://www.jxplorer.org/ pour modifier et visualiser la base LDAP.
 
 ## Configuration
 
-Placez­-vous dans le menu Configuration ­> Authentification.
+Placez­-vous dans le menu `Configuration ­> Authentification`.
 
 Cliquez sur le lien Annuaires LDAP.
 
-Cliquez sur le bouton Ajouter .
+Cliquez sur le bouton `Ajouter` (`+`) .
 
 La fiche de saisie des données de connexion à l’annuaire s’affiche. Les différents champs proposés sont :
 
