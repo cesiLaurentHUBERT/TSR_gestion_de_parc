@@ -26,7 +26,7 @@ Ne pas oublier de **noter vos mots de passe en lieu sûr**.
 
 ### Importation de la base de données de démonstration
 
-La base de données se situe [ici](data/glpi-0.85.2-init-demo.sql).
+La base de données se situe [ici](data/glpi-9.1.3-init-demo.sql.gz).
 
 Importez cette base de données dans GLPI.
 
