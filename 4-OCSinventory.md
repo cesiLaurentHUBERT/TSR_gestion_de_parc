@@ -8,10 +8,13 @@ Les deux paquets à installer sont les suivants:
  - ocsinventory-server
  - ocsinventory-reports
 
-Debian installe la version 2.0.5 de ces deux paquets et c'est celle que nous allons utiliser.
+Debian installe la version 2.0.5 de ces deux paquets.
 
+Il est possible de la mettre à jour en suivant les instructions données [sur cette page](http://wiki.ocsinventory-ng.org/index.php?title=Howtos:Install_OCS_on_debian/fr).
 
 Vous pouvez également lire la documentation présente [sur cette page](http://wiki.ocsinventory-ng.org/index.php?title=Documentation:Server/fr) pour plus d'informations.
+
+Pour l'instant, nous allons rester sur la version 2.0.5.
 
 Pour commencer, vous allez configurer OCSinventory en tant que serveur.
 
