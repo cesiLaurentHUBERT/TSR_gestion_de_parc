@@ -42,6 +42,8 @@ Les logins et mot de passe sont dans la documentation indiquée précédemment. 
 
 Configurer DNS et DHCP de manière à faire pointer l'adresse `ocs.exemple.cesi` vers l'IP du serveur OCS.
 
+N'oubliez pas de configurer le fichiers `hosts` de votre machine physique pour qu'il gère cette nouvelle adresse.
+
 ### VirtualHost Apache
 
 La configuration de votre VirtualHost devrait ressembler à ceci (fichier `/etc/apache2/conf-available/ocsinventory-reports.conf`):
