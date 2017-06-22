@@ -10,11 +10,11 @@ Les deux paquets à installer sont les suivants:
 
 Debian installe la version 2.0.5 de ces deux paquets.
 
-Il est possible de la mettre à jour en suivant les instructions données [sur cette page](http://wiki.ocsinventory-ng.org/index.php?title=Howtos:Install_OCS_on_debian/fr).
+Après avoir installé le paquet `build-essential`, il est possible de mettre à jour OCS NG en suivant les instructions données [sur cette page](http://wiki.ocsinventory-ng.org/index.php?title=Howtos:Install_OCS_on_debian/fr).
+
 
 Vous pouvez également lire la documentation présente [sur cette page](http://wiki.ocsinventory-ng.org/index.php?title=Documentation:Server/fr) pour plus d'informations.
 
-Pour l'instant, nous allons rester sur la version 2.0.5.
 
 Pour commencer, vous allez configurer OCSinventory en tant que serveur.
 
@@ -142,6 +142,45 @@ sudo mysqldump --add-drop-table --complete-insert --extended-insert --quote-name
 mysql -u root -p ocsweb < ocsweb-201706170934.sql
 ```
 
+
+## Configuration de la connexion à la base OCS NG
+
+### Changement du mot de passe de la base ocsweb
+Ceci est nécessaire pour sécuriser la base.
+
+Vous allez taper les commandes suivantes:
+
+```bash
+mysql -h localhost -u root -p
+```
+
+À l'invite mysql, tapez les commandes suivantes:
+
+```sql
+use mysql;
+SET PASSWORD FOR 'ocs'@'localhost' = PASSWORD('monNouveauMotDePasse');
+SET PASSWORD FOR 'ocs'@'%' = PASSWORD('monNouveauMotDePasse');
+FLUSH PRIVILEGES;
+quit
+```
+
+Editer le fichier de configuration et remplacer le mot de passe:
+```bash
+sudo ne /etc/ocsinventory/dbconfig.inc.php
+```
+
+C'est la ligne suivante qu'il faut modifier:
+```php
+define("PSWD_BASE","gmsi15");
+```
+
+Puis supprimer le fichier d'installation:
+
+```bash
+sudo rm /usr/share/ocsinventory-reports/install.php
+```
+
+
 ### Installation des agents
 
 #### Debian
@@ -167,3 +206,38 @@ Pour Windows, vous allez utiliser l'agent OCS compatible que vous trouverez [ici
 La configuration de cet agent se fait à l'installation. Cependant, il est possible de le configurer après coup.
 
 Le fichier de configuration de cet agent est placé ici: `C:\ProgramData\OCS Inventory NG\Agent`. Une fois modifié, il est nécessaire de redémarrer Windows pour tenir compte des modifications.
+
+
+## Connexion avec GLPI
+
+L'intérêt d'OCS est qu'il va nous permettre de récupérer les informations dans la BDD GLPI.
+
+### Configuration OCSNG
+Sur l'interface de gestion, cliquez sur le bouton de configuration ![config](images/ocs-config.png)
+
+Puis cliquez/survolez ![config](images/ocs-config2.png) et cliquez sur `config`. Dans l'onglet `Server` positionnez `TRACE_DELETED` sur `On`
+
+#### En cas de problème de connexion avec `admin`
+
+Utiliser phpMyAdmin pour générer un nouveau mot de passe dans la table `operators` (hashage en MD5).
+
+### Installation du plugin OCSNG
+
+ - Placez­-vous dans le menu Configuration ­ Plugins.
+ - Cliquez sur le bouton Voir le catalogue des plugins.
+ - Dans le sommaire, cliquez sur ocs­ng.
+ - Cliquez sur le lien En savoir plus du plugin OCS INVENTORY NG. Cliquez sur le bouton Télécharger.
+ - Avec l'utilitaire `wget`, vous allez récupéré une archive. Décompressez cette archive. Décompressez cette archive dans ../glpi/plugins.
+   - `sudo -u www-data tar xzf glpi-ocsinventoryng-1.3.3.tar.gz  -C /usr/share/glpi/plugins/`
+ - Cliquez à nouveau dans le menu Configuration ­ Plugins. Cliquez sur le bouton Installer.
+ - Cliquez sur le bouton `Activer`
+
+ Le menu `OCS Inventory NG` est désormais disponible dans le menu `Outils`.
+
+### Importation
+
+Une fois la configuration faite, on va pouvoir faire un premier import.
+
+Allez dans le menu `Outils > OCS Inventory NG` puis sur l'onglet `Import de l'inventaire`.
+
+Le bouton `+` permet d'importer de nouveaux ordinateurs. Il est également possible de synchroniser les ordinateurs existants.
