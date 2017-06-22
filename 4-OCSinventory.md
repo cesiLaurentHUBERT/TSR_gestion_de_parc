@@ -187,6 +187,22 @@ sudo rm /usr/share/ocsinventory-reports/install.php
 
 Le gestionnaire de paquet permet l'installation de l'agent: `ocsinventory-agent`
 
+Configurer l'agent pour utiliser la méthode `http` afin d'utiliser la connexion réseau.
+
+Indiquer l'adresse du serveur telle que définie dans le DNC `ocs.exemple.cesi` (si ce n'est pas déjà fait, configurer le DNS correctement).
+
+Ajouter un tag: `FR-Nantes-SI`
+
+Dans cet exemple `FR-Nantes-SI` va permettre d'indiquer que l'ordinateur est affecté au service informatique de l'entité `France>Nantes`.
+
+Vous pouvez également modifier les informations de configuration en éditant le fichier `/etc/ocsinventory/ocsinventory-agent.cfg`:
+
+```conf
+server=ocs.exemple.cesi
+tag=FR-Nantes-SI
+```
+
+
 ##### Test d'inventaire
 
 Pour le premier test, nous allons utiliser la machine `netservice`.
