@@ -85,6 +85,8 @@ sudo apt-cache search php |grep curl
 sudo apt-get install php5-curl
 ```
 
+Après chaque installation, il faut redémarrer le serveur Apache
+
 ### Installation de gd
 
 ```bash
