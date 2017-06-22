@@ -166,6 +166,8 @@ mysql -u root -p ocsweb < ocsweb-201706170934.sql
 ### Changement du mot de passe de la base ocsweb
 Ceci est nécessaire pour sécuriser la base.
 
+
+#### Mot de passe MySQL
 Vous allez taper les commandes suivantes:
 
 ```bash
@@ -181,6 +183,7 @@ SET PASSWORD FOR 'ocs'@'%' = PASSWORD('ocsocsDEMO');
 FLUSH PRIVILEGES;
 quit
 ```
+#### Mot de passe pour l'interface de gestion
 
 Editer le fichier de configuration et remplacer le mot de passe:
 ```bash
@@ -192,6 +195,7 @@ C'est la ligne suivante qu'il faut modifier:
 define("PSWD_BASE","ocsocsDEMO");
 ```
 
+#### Mot de passe pour le serveur OCS
 Ensuite, modifier le fichier `/etc/apache2/conf-available/ocsinventory-server.conf` et remplacer la ligne suivante:
 
 ```conf
@@ -207,6 +211,7 @@ PerlSetVar OCS_DB_PWD ocsocsDEMO
 
 **Redémarrer ensuite votre serveur Apache**
 
+#### Suppression des fichiers d'installation
 Puis supprimer le fichier d'installation:
 
 ```bash
