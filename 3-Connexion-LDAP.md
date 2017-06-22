@@ -110,3 +110,12 @@ La commande suivante doit vous afficher immédiatement (ou presque) les informat
 ```bash
 ldapsearch -b'dc=masocietedemo,dc=com' -x
 ```
+
+### En cas d'erreur
+
+```
+$ ldapsearch -b'dc=masocietedemo,dc=com' -x
+ldap_sasl_bind(SIMPLE): Can't contact LDAP server (-1)
+```
+
+Ce type d'erreur indique un blocage du firewall: vérifier que le port 389 est ouvert.
