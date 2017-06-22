@@ -118,4 +118,4 @@ $ ldapsearch -b'dc=masocietedemo,dc=com' -x
 ldap_sasl_bind(SIMPLE): Can't contact LDAP server (-1)
 ```
 
-Ce type d'erreur indique un blocage du firewall: vérifier que le port 389 est ouvert.
+Ce type d'erreur indique un blocage du firewall: vérifier que le port 389 est ouvert (dans notre firewall maison, il faut l'ajouter à la variable `REMOTE_TCP_SERVICES`).
