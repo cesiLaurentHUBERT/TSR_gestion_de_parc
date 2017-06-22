@@ -58,13 +58,9 @@ Commentaires : ce champ vous permet d’ajouter toutes les informations que vous
 ### Test
 
 Pour valider la création de la connexion, cliquez sur le bouton Ajouter. GLPI teste la connexion sur le serveur LDAP.
-Retournez dans la fiche de la connexion. Un ensemble de sous­menus a été ajouté.
+Retournez dans la fiche de la connexion. Un ensemble de sous­-menus a été ajouté.
 
-`Tester`
-
-   Cet item contient le Test de connexion à l’annuaire LDAP. Un bouton Tester permet de relancer le test de
-
-
+Le sous-menu `Tester` lance le test de connexion à l’annuaire LDAP. Un bouton Tester permet de relancer le test de connection si nécessaire.
 
 ### Utilisateurs
 
@@ -92,4 +88,25 @@ D’autres champs peuvent également être alimentés à partir des attribut
 ## Vérification
 ### Connexion
 
-Le nom d'utilisateur est jquelqun. Le mot de passe est celui saisi dans l'annuaire.
+Le nom d'utilisateur est `jquelqun`. Le mot de passe est celui saisi dans l'annuaire.
+
+### Outils en ligne de commande
+
+En cas de dysfonctionnement, vous pouvez installer le paquet `ldap-utils`
+
+Pour configurer les commandes LDAP en leur indiquant le serveur, éditer le fichier `/etc/ldap/ldap.conf`
+
+Décommenter la ligne commençant par `#URI ...`
+
+Vous devriez avoir quelque chose ressemblant à ceci :
+
+```conf
+BASE    dc=masocietedemo,dc=com
+URI     ldap://ldap.exemple.cesi
+```
+
+La commande suivante doit vous afficher immédiatement (ou presque) les informations de l'annuaire:
+
+```bash
+ldapsearch -b'dc=masocietedemo,dc=com' -x
+```
