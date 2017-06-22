@@ -171,7 +171,7 @@ sudo ne /etc/ocsinventory/dbconfig.inc.php
 
 C'est la ligne suivante qu'il faut modifier:
 ```php
-define("PSWD_BASE","gmsi15");
+define("PSWD_BASE","monNouveauMotDePasse");
 ```
 
 Puis supprimer le fichier d'installation:
