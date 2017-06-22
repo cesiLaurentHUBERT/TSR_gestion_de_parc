@@ -127,11 +127,13 @@ La configuration de votre VirtualHost devrait ressembler à ceci (fichier `/etc/
 </VirtualHost>
 ```
 
-Redémarrer votre serveur Apache
+Redémarrer votre serveur Apache après avoir activé cette configuration
 
 ### Initialisation d'OCS
 
-Se connecter sur `ocs.exemple.cesi` pour initialiser la base de données OCSNG.
+Se connecter sur `http://ocs.exemple.cesi` pour initialiser la base de données OCSNG.
+
+Entrer les informations de connexion:
 
 
 ## Sauvegarde et restauration de la BDD
@@ -191,7 +193,23 @@ Puis supprimer le fichier d'installation:
 ```bash
 sudo rm /usr/share/ocsinventory-reports/install.php
 ```
+### Mise à jour du mot de passe admin d'OCS
 
+Parfois le mot de passe de l'utilisateur `admin` est remis à zéro après le changement de mot de passe précédent.
+
+Pour changer ce mot de passe:
+```bash
+mysql -u root -p ocsweb
+```
+Et tapez les commandes SQL suivantes:
+```sql
+use ocsweb;
+
+UPDATE operators SET `PASSWD` = MD5('ocswebCESI') WHERE `operators`.`ID` = 'admin';
+
+quit
+
+```
 
 ### Installation des agents
 
