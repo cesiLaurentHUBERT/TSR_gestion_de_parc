@@ -135,6 +135,10 @@ Se connecter sur `http://ocs.exemple.cesi` pour initialiser la base de données 
 
 Entrer les informations de connexion:
 
+- Login MySQL: root
+- MdP root MySQL
+- ocsweb
+- Hôte MySQL: localhost
 
 ## Sauvegarde et restauration de la BDD
 
@@ -172,8 +176,8 @@ mysql -h localhost -u root -p
 
 ```sql
 use mysql;
-SET PASSWORD FOR 'ocs'@'localhost' = PASSWORD('monNouveauMotDePasse');
-SET PASSWORD FOR 'ocs'@'%' = PASSWORD('monNouveauMotDePasse');
+SET PASSWORD FOR 'ocs'@'localhost' = PASSWORD('ocsocsDEMO');
+SET PASSWORD FOR 'ocs'@'%' = PASSWORD('ocsocsDEMO');
 FLUSH PRIVILEGES;
 quit
 ```
@@ -185,8 +189,23 @@ sudo ne /etc/ocsinventory/dbconfig.inc.php
 
 C'est la ligne suivante qu'il faut modifier:
 ```php
-define("PSWD_BASE","monNouveauMotDePasse");
+define("PSWD_BASE","ocsocsDEMO");
 ```
+
+Ensuite, modifier le fichier `/etc/apache2/conf-available/ocsinventory-server.conf` et remplacer la ligne suivante:
+
+```conf
+# Password for user
+PerlSetVar OCS_DB_PWD ocs
+```
+
+Par:
+```conf
+# Password for user
+PerlSetVar OCS_DB_PWD ocsocsDEMO
+```
+
+**Redémarrer ensuite votre serveur Apache**
 
 Puis supprimer le fichier d'installation:
 
