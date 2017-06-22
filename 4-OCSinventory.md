@@ -38,6 +38,10 @@ Les logins et mot de passe sont dans la documentation indiquée précédemment. 
 
 ## Configuration de l'outil de reporting
 
+### Configuration DNS et DHCP
+
+Configurer DNS et DHCP de manière à faire pointer l'adresse `ocs.exemple.cesi` vers l'IP du serveur OCS.
+
 ### VirtualHost Apache
 
 La configuration de votre VirtualHost devrait ressembler à ceci (fichier `/etc/apache2/conf-available/ocsinventory-reports.conf`):
@@ -120,6 +124,12 @@ La configuration de votre VirtualHost devrait ressembler à ceci (fichier `/etc/
     </Directory>
 </VirtualHost>
 ```
+
+Redémarrer votre serveur Apache
+
+### Initialisation d'OCS
+
+Se connecter sur `ocs.exemple.cesi` pour initialiser la base de données OCSNG.
 
 
 ## Sauvegarde et restauration de la BDD
