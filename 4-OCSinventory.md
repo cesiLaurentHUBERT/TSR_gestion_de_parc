@@ -205,7 +205,13 @@ Pour Windows, vous allez utiliser l'agent OCS compatible que vous trouverez [ici
 
 La configuration de cet agent se fait à l'installation. Cependant, il est possible de le configurer après coup.
 
+Vous allez positionner un Tag sur chaque nouvel ordinateur. Par exemple `Fr-Rennes-RH` va permettre d'indiquer que l'ordinateur est affecté au service RH de l'entité `France>Rennes`.
+
+La nomenclature des Tags est à définir selon les besoins et l'organisation du SI de l'entreprise.
+
 Le fichier de configuration de cet agent est placé ici: `C:\ProgramData\OCS Inventory NG\Agent`. Une fois modifié, il est nécessaire de redémarrer Windows pour tenir compte des modifications.
+
+
 
 
 ## Connexion avec GLPI
