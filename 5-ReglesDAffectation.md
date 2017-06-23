@@ -78,8 +78,8 @@ Cliquer sur `Tester`
 
 Le résultat devrait être le suivant:
 
-| Résultat de la règle |
-|---|
+| Résultat de la règle ||||
+|---|---|---|---|
 | Validation	 | Oui |
 |Résultat de l'expression rationnelle	| |Clé | Valeur |
 |||0	|France|
@@ -98,23 +98,23 @@ Entrer les valeurs suivantes:
 
 Vous devriez voir les valeurs suivantes s'afficher:
 
-|Détail du résultat|
-|---|
+|Détail du résultat||
+|---|---|
 |Admin|	Oui
 |Root	|Oui
 
-|Résultat de la règle
-|---
+|Résultat de la règle||
+|---|---|
 |Validation|	Oui
 
-|Affectation d'entités|
-|---
+|Affectation d'entités||
+|---|---|
 |Entité |	MaSociétéDémo|
 |Entité |	MaSociétéDémo |
 
 
-|Affectation de droits
-|---
+|Affectation de droits||
+|---|---|
 |Profils| 	Technicien|
 
 
@@ -151,8 +151,8 @@ Entrer les valeurs suivantes:
 
 Vous devriez voir apparaître le tableau suivant:
 
-| Affectation d'entités |
-|---
+| Affectation d'entités ||
+|---|---|
 | Entité 	| Entité Racine > France |
 | Profils 	|Technicien
 | Récursif |	Non|
