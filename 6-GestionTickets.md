@@ -4,7 +4,7 @@
 
 
 ### Création d'un utilisateur standard (Self-Service)
-Aller sur `Administration > Profils`
+Aller sur `Administration > Utilisateur`
 
 Créer un utilisateur avec les informations suivantes:
 
@@ -20,10 +20,9 @@ Créer un utilisateur avec les informations suivantes:
 Cliquer sur `Ajouter`
 
 
-
 ### Création d'un superviseur
 
-Aller sur `Administration > Profils`
+Aller sur `Administration > Utilisateur`
 
 Créer un utilisateur avec les informations suivantes:
 
@@ -38,16 +37,35 @@ Créer un utilisateur avec les informations suivantes:
 
 Cliquer sur `Ajouter`
 
+### Création d'un technicien
+
+Aller sur `Administration > Utilisateur`
+
+Créer un utilisateur avec les informations suivantes:
+
+- Identifiant: jtechnicien
+- Nom: Technicien
+- Prénom : Jean
+- Mot de passe: jtechnicienGLPI
+- Habilitation
+  - Récursif: Oui
+  - Entité: Entité Racine > France
+  - Profil: Technicien
+
+Cliquer sur `Ajouter`
+
+
 ## Création et affectation de ticket.
 
 Dans ce scénario, Christian Barbier va créer un nouveau ticket.
 
-Ce ticket ne sera pas visible par Jean Quelqun (un profil Technicien).
+Ce ticket ne sera pas visible par Jean (un profil Technicien).
 
 Il va d'abord être affecté par Pierre Superviseur à Jean.
 
-Ensuite, Jean va clôturer ce ticket.
+Ensuite, Jean va modifier ce ticket et demander sa validation.
 
+Pierre va alors marquer ce ticket comme résolu.
 
 ### Création du ticket
 
