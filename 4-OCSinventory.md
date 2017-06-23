@@ -243,7 +243,7 @@ Le gestionnaire de paquet permet l'installation de l'agent: `ocsinventory-agent`
 
 Configurer l'agent pour utiliser la méthode `http` afin d'utiliser la connexion réseau.
 
-Indiquer l'adresse du serveur telle que définie dans le DNC `ocs.exemple.cesi` (si ce n'est pas déjà fait, configurer le DNS correctement).
+Indiquer l'adresse du serveur telle que définie dans le DNS `ocs.exemple.cesi` (si ce n'est pas déjà fait, configurer le DNS correctement).
 
 Ajouter un tag: `FR-Nantes-SI`
 
@@ -279,8 +279,33 @@ Vous allez positionner un Tag sur chaque nouvel ordinateur. Par exemple `Fr-Renn
 
 La nomenclature des Tags est à définir selon les besoins et l'organisation du SI de l'entreprise.
 
+##### Fichiers de configuration
+
 Le fichier de configuration de cet agent est placé ici: `C:\ProgramData\OCS Inventory NG\Agent`. Une fois modifié, il est nécessaire de redémarrer Windows pour tenir compte des modifications.
 
+Le fichier de log est situé au même emplacement et se nomme `OCSInventory.log`. Ce fichier vous permet de vérifier que la connexion au serveur s'est bien passée. Exemple:
+
+```log
+==============================================================================
+Starting OCS Inventory NG Agent on Friday, June 23, 2017 09:02:50.
+AGENT => Running OCS Inventory NG Agent Version 2.0.5.0
+AGENT => Using OCS Inventory NG FrameWork Version 2.0.5.0
+AGENT => Loading plug-in(s)
+AGENT => Using network connection with Communication Server
+AGENT => Using Communication Provider <OCS Inventory NG cURL Communication Provider> Version <2.0.5.0>
+AGENT => Sending Prolog
+AGENT => Prolog successfully sent
+SUPPORT => No support registered for your installation. Check OCS Inventory NG support packages at http://www.ocsinventory-ng.com
+AGENT => Inventory required
+AGENT => Launching hardware and software checks
+AGENT => Sending Inventory
+INVENTORY => Inventory changed since last run
+AGENT => Inventory successfully sent
+AGENT =>  Communication Server ask for Package Download
+AGENT => Unloading communication provider
+AGENT => Unloading plug-in(s)
+AGENT => Execution duration: 00:00:32.
+```
 
 
 
