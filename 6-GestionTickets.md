@@ -74,4 +74,37 @@ Visualiser les tickets attribués
 
 Ouvrir le ticket de Christian
 
-Ajouter une
+Aller dans `Traitements du ticket`
+
+Ajouter un suivi et proposer une solution (par exemple "J'ai rebranché le câble réseau").
+
+Cliquer sur `Ajouter`
+
+Puis pour valider le ticket:
+
+1. Cliquer sur `Validations`
+1. Cliquer sur `Envoyer une demande de validation`
+1. Sélectionner les valeurs suivantes:
+  - Valideur
+     -  Utilisateur
+     - Pierre Superviseur
+1. cliquer sur `Ajouter`
+
+
+### Validation du ticket
+Se connecter en tant que Pierre
+
+Dans le menu `Accueil`, on voit apparaître le ticket à valider.
+
+Cliquer sur la demande de Jean (en bas)
+
+Sélectionner `100%` comme validation minimale nécessaire
+
+Cliquer sur `Sauvegarder`: le ticket apparaît comme accepté.
+
+Cliquer sur le menu `Ticket` à gauche
+ - Pour la valeur de `Statut`, selectionner `Résolu`
+ - Cliquer sur `Sauvegarder`
+
+### Vérification
+Se reconnecter avec Christian pour visualiser le ticket (en allant dans le menu Tickets).
